@@ -70,6 +70,24 @@ int main() {
     tree.print_tree();
     std::cout << "Traversal has ended. You have reached the Spokane River Lower Falls Dam!\n";
 
+    std::cout << "Would you like to add a node of your own? (y/n)" << std::endl;
+    char response;
+    std::cin >> response;
+    if(response == 'y'){
+        std::string name;
+        int length;
+        std::cout << "What is the name?" << std::endl;
+        std::cin >> name;
+        std::cout << "What is the length from the dam? (miles)" << std::endl;
+        std::cin >> length;
+        tree.insert(name, length);
+        std::cout << "You inserted " << name << " with a length of " << length << " into the tree." << std::endl;
+        tree.print_tree();
+        std::cout << "Traversal has ended. You have reached the Spokane River Lower Falls Dam!\n";
+    } else {
+        std::cout << "Lame... :(" << std:: endl;
+    }
+
     //std::cout << "Tree depth: " << tree.calculate_depth() << std::endl;
 
 
