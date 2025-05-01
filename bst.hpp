@@ -1,40 +1,42 @@
 #ifndef BST_HPP
 #define BST_HPP
+#include <string>
 
-class Node {
+class RiverNode {
 public:
-    int data;
-    Node* left;
-    Node* right;
-    Node(int val);
-    ~Node();
+    std::string name;
+    int length;
+    RiverNode* left;
+    RiverNode* right;
+    RiverNode(std::string& name, int length);
+    ~RiverNode();
 };
 
 class BST {
 public:
     BST();
     ~BST();
-    void insert(int val);
-    bool search(int val);
+    void insert(std::string&name, int length);
+    bool search(std::string& name, int length);
     void in_order_traversal();
     void pre_order_traversal();
     void post_order_traversal();
     void delete_node(int val);
     int calculate_depth();
     void print_tree();
-    Node* get_root(){return root;};
+    RiverNode* get_root(){return root;};
 
 private:
-    Node* root;
-    void insert(Node*& node, int val);
-    bool search(Node* node, int val);
-    void in_order_traversal(Node* node);
-    void pre_order_traversal(Node* node);
-    void post_order_traversal(Node* node);
-    Node* delete_node(Node* node, int val);
-    Node* find_min(Node* node);
-    int calculate_depth(Node* node);
-    void print_tree(Node* node, int space);
+    RiverNode* root;
+    void insert(RiverNode*& node, std::string& name, int length);
+    bool search(RiverNode* node, std::string& name, int length);
+    void in_order_traversal(RiverNode* node);
+    void pre_order_traversal(RiverNode* node);
+    void post_order_traversal(RiverNode* node);
+    RiverNode* delete_node(RiverNode* node, int length);
+    RiverNode* find_min(RiverNode* node);
+    int calculate_depth(RiverNode* node);
+    void print_tree(RiverNode* node, int space);
 };
 
 #endif

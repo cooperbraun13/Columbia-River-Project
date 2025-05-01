@@ -3,13 +3,14 @@
 #include <iomanip>
 // #include <algorithm>
 
-Node::Node(int val) {
-    data = val;
+RiverNode::RiverNode(std::string& name, int length) {
+    this-> name = name;
+    this->length = length;
     left = nullptr;
     right = nullptr;
 }
 
-Node::~Node() {
+RiverNode::~RiverNode() {
     if (left != nullptr){
         delete left;
         left = nullptr;
@@ -31,18 +32,19 @@ BST::~BST() {
     }
 }
 
-void BST::insert(int val) {
-    insert(root, val);
+void BST::insert(std::string& name, int length) {
+    insert(root, name, length);
 }
 
-bool BST::search(int val) {
-    return search(root, val);
+bool BST::search(std::string& name, int length) {
+    return search(root, name, length);
 }
 void BST::in_order_traversal() {
     in_order_traversal(root);
     std::cout << std::endl;
 }
 
+/*
 void BST::pre_order_traversal() {
     pre_order_traversal(root);
     std::cout << std::endl;
@@ -52,6 +54,7 @@ void BST::post_order_traversal() {
     post_order_traversal(root);
     std::cout << std::endl;
 }
+*/
 
 void BST::delete_node(int val) {
     root = delete_node(root, val);
@@ -65,39 +68,41 @@ void BST::print_tree() {
     print_tree(root, 0);
 }
 
-void BST::insert(Node*& node, int val) {
+void BST::insert(RiverNode*& node, std::string& name, int length) {
     if( node == nullptr){
-     node = new Node(val);
-    } else if(val < node->data){
-        insert(node->left, val);
+     node = new RiverNode(name, length);
+    } else if(length < node->length){
+        insert(node->left, name, length);
     } else{
-     insert(node->right, val);
+     insert(node->right, name, length);
     }
  }
 
-bool BST::search(Node* node, int val){
+bool BST::search(RiverNode* node, std::string& name, int length){
     if (node == nullptr){
         return false;
-    } else if (node->data == val){
+    } else if (node->name == name && node->length == length){
         return true;
-    } else if(node->data > val){
-        return search(node->left, val);
+    } else if(node->length > length){
+        return search(node->left, name, length);
     } else{
-        return search(node->right, val);
+        return search(node->right, name, length);
     }
 }
 
 
-void BST::in_order_traversal(Node* node) {
+void BST::in_order_traversal(RiverNode* node) {
     if(node == nullptr){
         return;
     } else {
         in_order_traversal(node->left);
-        std::cout << node->data << " ";
+        std::cout << node->name << " ";
+        std::cout << node->length << " ";
         in_order_traversal(node->right);
     }
 }
 
+/*
 void BST::pre_order_traversal(Node* node) {
     return;
 }
@@ -105,40 +110,39 @@ void BST::pre_order_traversal(Node* node) {
 void BST::post_order_traversal(Node* node) {
     return;
 }
+*/
 
-Node* BST::delete_node(Node* node, int val) {
+RiverNode* BST::delete_node(RiverNode* node, int length) {
     return node;
 }
 
-Node* BST::find_min(Node* node) {
+RiverNode* BST::find_min(RiverNode* node) {
     while(node->left != nullptr){
         node = node->left;
     }
     return node;
 }
 
-int BST::calculate_depth(Node* node) {
+int BST::calculate_depth(RiverNode* node) {
     return 0;
 }
 
-void BST::print_tree(Node* node, int space) {
+void BST::print_tree(RiverNode* node, int space) {
     if (node == nullptr) {
         return;
     }
-    space += 5;
+    space -= 5;
     print_tree(node->right, space);
     std::cout << std::endl;
-    for (int i = 5; i < space; i++) {
-        std::cout << " ";
+    std::cout << "This is the " << node->name << ", which is " << node->length << " miles from the Spokane River Lower Falls Dam.\n";
+    std::cout << " /"<< std::setw(2)<< " " << "Right: " << (node->right ? node->right->name : "None") << " |" << std::endl;
+    std::cout << "|" << std::setw(3) << node->length << " at " << std::setw(17) << node << " |" << std::endl;
+    std::cout << " \\"<< std::setw(2)<< " " << "Left : " << (node->left ? node->left->name : "None") << " |" << std::endl;
+    if (node->right == nullptr && node->left == nullptr) {
+        std::cout << "\nThis is a leaf RiverNode in our tree.\n";
     }
-    std::cout << " /"<< std::setw(2)<< " " << "Right: " << std::setw(14) << node->right << " |" << std::endl;
-    for (int i = 5; i < space; i++) {
-        std::cout << " ";
-    }
-    std::cout << "|" << std::setw(3) << node->data << " at " << std::setw(17) << node << " |" << std::endl;
-     for (int i = 5; i < space; i++) {
-        std::cout << " ";
-    }
-    std::cout << " \\"<< std::setw(2)<< " " << "Left : " << std::setw(14) << node->left << " |" << std::endl;
+    std::cout << "\nPress Enter to continue printed traversal...\n";
+    std::cin.get();
+    
     print_tree(node->left, space);
 }
