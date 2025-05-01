@@ -143,4 +143,7 @@ void BST::print_tree(RiverNode* node, int space) {
     }
     std::cout << "\nPress Enter to continue printed traversal...\n";
     std::cin.get();
+    
+    print_tree(node->left, space);
+
 }

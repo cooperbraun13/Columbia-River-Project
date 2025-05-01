@@ -83,7 +83,6 @@ int main() {
         tree.insert(name, length);
         std::cout << "You inserted " << name << " with a length of " << length << " into the tree." << std::endl;
         tree.print_tree();
-        std::cout << "Traversal has ended. You have reached the Spokane River Lower Falls Dam!\n";
     } else {
         std::cout << "Lame... :(" << std:: endl;
     }
