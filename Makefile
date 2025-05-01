@@ -6,6 +6,7 @@ compile:
 	@echo ""
 
 run: 
+	@echo "Executing Program:"
 	@echo ""
 	@./tree
 
