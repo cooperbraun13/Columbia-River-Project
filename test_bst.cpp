@@ -23,15 +23,14 @@ bool test_insert(){
         assert(root->left->data == 2);
         assert(root->left->right->data == 5);
         assert(root->left->left == nullptr);
-    assert(root->right->right == nullptr);
-    assert(root->left->right->left == nullptr);
+        assert(root->right->right == nullptr);
+        assert(root->left->right->left == nullptr);
         assert(root->left->right->right->data == 7);
-    assert(root->left->right->right->right == nullptr);
-    assert(root->left->right->right->left == nullptr);
-
-        return true;
+        assert(root->left->right->right->right == nullptr);
+        assert(root->left->right->right->left == nullptr);
 
         //cleanup
+        return true;
 }
 
 bool test_search(){
@@ -59,11 +58,8 @@ bool test_search(){
         assert(search5 == true);
         assert(search6 == true);
 
-        return true;
-
         //cleanup
-
-
+        return true;
 }
 
 void test_in_order_traversal(){
@@ -107,7 +103,6 @@ void test_post_order_traversal(){
         b.post_order_traversal();
 
         cout << "" << endl;
-
 }
 
 bool test_find_min(){
@@ -121,5 +116,5 @@ int main(){
         cout << "2 5 7 10 12 15 17" << endl;
         //cout << test_pre_order_traversal << endl;
         //cout << test_post_order_traversal << endl;
-                        return 0;
+        return 0;
 }
