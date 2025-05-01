@@ -4,29 +4,27 @@ Class: CPSC 223
 
 Authors: Cooper Braun, Abby Fewel, Ayden Humphries, Navin Kunakornvanich
 
-## Compile
+## Compiling
 
-To compile the main program use either:
+To compile the main program use:
 
 `make compile`
 
-or
+To compile the tests use:
 
-`g++ -std=c++11 bst.cpp main.cpp -o tree
+`make compile_test`
 
-## Run Tests
+## Running
 
-To run the test use:
+To run the tests use:
 
-`make test`
+`make run_test`
 
-or
+or 
 
-`./test`
+`./test_tree
 
-## Run Program
-
-To run the program use:
+To run the main program use:
 
 `make run`
 
@@ -34,7 +32,7 @@ or
 
 `./tree`
 
-## Clean
+## Cleaning
 
 To clean the program use:
 
