@@ -25,15 +25,14 @@ bool test_insert(){
         assert(root->left->length == 2);
         assert(root->left->right->length == 5);
         assert(root->left->left == nullptr);
-    assert(root->right->right == nullptr);
-    assert(root->left->right->left == nullptr);
+        assert(root->right->right == nullptr);
+        assert(root->left->right->left == nullptr);
         assert(root->left->right->right->length == 7);
-    assert(root->left->right->right->right == nullptr);
-    assert(root->left->right->right->left == nullptr);
-
-        return true;
+        assert(root->left->right->right->right == nullptr);
+        assert(root->left->right->right->left == nullptr);
 
         //cleanup
+        return true;
 }
 
 bool test_search(){

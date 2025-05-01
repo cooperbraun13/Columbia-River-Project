@@ -146,4 +146,5 @@ void BST::print_tree(RiverNode* node, int space) {
     }
     
     print_tree(node->left, space);
+
 }
