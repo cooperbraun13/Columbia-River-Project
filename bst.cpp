@@ -140,9 +140,10 @@ void BST::print_tree(RiverNode* node, int space) {
     std::cout << " \\"<< std::setw(2)<< " " << "Left : " << (node->left ? node->left->name : "None") << " |" << std::endl;
     if (node->right == nullptr && node->left == nullptr) {
         std::cout << "\nThis is a leaf RiverNode in our tree.\n";
+    } else {
+        std::cout << "\nPress Enter to continue printed traversal...\n";
+        std::cin.get();
     }
-    std::cout << "\nPress Enter to continue printed traversal...\n";
-    std::cin.get();
     
     print_tree(node->left, space);
 }
