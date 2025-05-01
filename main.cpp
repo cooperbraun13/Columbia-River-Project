@@ -76,7 +76,7 @@ int main() {
     if(response == 'y'){
         std::string name;
         int length;
-        std::cout << "What is the name?" << std::endl;
+        std::cout << "What is the name? Just the name, one word only please: " << std::endl;
         std::cin >> name;
         std::cout << "What is the length from the dam? (miles)" << std::endl;
         std::cin >> length;
