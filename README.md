@@ -22,7 +22,7 @@ To run the tests use:
 
 or 
 
-`./test_tree
+`./test_tree`
 
 To run the main program use:
 
